@@ -5,8 +5,8 @@ function toast(tit, con, col)
     syn.toast_notification({
         Type = ToastType.Info,
         Duration = 7.5,
-        Title = "Found 1",
-        Content = "Found ACS Module 1!",
+        Title = tit,
+        Content = con,
         IconColor = Color3.fromRGB(col, 234, 102)
     })
 end
