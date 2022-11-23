@@ -1,0 +1,17 @@
+function getAccessId()
+    local s = game.Players.LocalPlayer.Character["ACS_Client"]["ACS_Framework"]
+
+    for i,v in pairs(getgc()) do
+        if type(v) == 'function' and getfenv(v).script == s then
+            for tind, tval in pairs(getupvalues(v)) do
+                if string.sub(tostring(tval), 1,1) == "{" and string.len(tval) > 20 then
+                    accessid = tval
+                end
+            end
+        end
+    end
+
+    return accessid.."-"..game.Players.LocalPlayer.UserId
+end
+
+local ACS_Access_ID = getAccessId()
